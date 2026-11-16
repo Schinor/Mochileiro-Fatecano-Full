@@ -1,0 +1,155 @@
+/* Painel e login: mesmo visual da landing page (site.css) */
+:root {
+    --marca: #0aa89e;
+    --marca-escura: #07857d;
+    --marca-clara: #e6f7f5;
+    --texto: #101820;
+    --cinza: #5c6770;
+    --borda: #e3e8eb;
+    --fundo-alt: #f5f7f8;
+    --erro: #c0392b;
+    --ok: #107a4d;
+    --verde: #107a4d;
+    --azul: #2563eb;
+    --fonte: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--fonte); color: var(--texto); background: var(--fundo-alt); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: var(--marca-escura); }
+h1, h2, h3 { letter-spacing: -.02em; }
+
+/* ---------- Botões ---------- */
+.btn, button.btn {
+    display: inline-flex; align-items: center; justify-content: center; border: 0; cursor: pointer; font: inherit; font-weight: 600; font-size: .92rem;
+    padding: .65rem 1.2rem; border-radius: 8px; text-decoration: none; background: var(--marca); color: #fff; transition: background .15s;
+}
+.btn:hover { background: var(--marca-escura); color: #fff; }
+.btn.escuro { background: var(--texto); }
+.btn.escuro:hover { background: #2b3640; }
+.btn.contorno { background: #fff; color: var(--texto); box-shadow: inset 0 0 0 1.5px var(--borda); }
+.btn.contorno:hover { background: var(--fundo-alt); color: var(--texto); }
+.btn.perigo { background: #fff; color: var(--erro); box-shadow: inset 0 0 0 1.5px #f1c6c1; }
+.btn.perigo:hover { background: #fdecea; color: var(--erro); }
+.btn.verde { background: var(--ok); }
+.btn.verde:hover { background: #0c5e3b; }
+.btn.pequeno { padding: .3rem .75rem; font-size: .8rem; border-radius: 6px; }
+
+/* ---------- Alertas e campos ---------- */
+.alerta { border-radius: 8px; padding: .8rem 1rem; margin-bottom: 1.2rem; font-size: .92rem; }
+.alerta.sucesso { background: #e5f6ee; color: var(--ok); border: 1px solid #b7e3cc; }
+.alerta.erro { background: #fdecea; color: #8a2a1f; border: 1px solid #f4c7c1; }
+.alerta ul { margin: 0; padding-left: 1.1rem; }
+
+.campo { margin-bottom: 1.1rem; }
+.campo label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .35rem; }
+.duas { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.dica { font-size: .82rem; color: var(--cinza); margin-top: .3rem; }
+input[type=text], input[type=email], input[type=password], input[type=number], input[type=date], input[type=search], select, textarea {
+    width: 100%; padding: .65rem .85rem; border: 1.5px solid var(--borda); border-radius: 8px; font: inherit; background: #fff; color: var(--texto);
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--marca); box-shadow: 0 0 0 3px var(--marca-clara); }
+.marcar { display: flex; align-items: center; gap: .5rem; font-size: .92rem; }
+.marcar input { width: auto; accent-color: var(--marca); }
+
+/* ---------- Login ---------- */
+.login { min-height: 100vh; display: grid; place-items: center; padding: 1.5rem; background: linear-gradient(180deg, var(--marca-clara) 0%, #fff 100%); }
+.login-caixa { width: 100%; max-width: 400px; background: #fff; border: 1px solid var(--borda); border-radius: 16px; padding: 2.2rem; box-shadow: 0 12px 40px rgba(16, 24, 32, .08); }
+.login-caixa .logo { justify-content: center; margin-bottom: .4rem; }
+.login-caixa .sub { text-align: center; color: var(--cinza); margin: 0 0 1.6rem; }
+.login-caixa .btn { width: 100%; margin-top: 1rem; padding: .85rem; }
+.login-caixa .voltar { display: block; text-align: center; margin-top: 1.3rem; font-size: .9rem; color: var(--cinza); text-decoration: none; }
+.login-caixa .voltar:hover { color: var(--texto); }
+
+.logo { display: flex; align-items: center; gap: .55rem; font-weight: 800; font-size: 1.25rem; letter-spacing: -.03em; text-decoration: none; color: var(--texto); }
+.logo svg { width: 26px; height: 26px; color: var(--marca); }
+
+/* ---------- Estrutura do painel ---------- */
+.painel-corpo { display: flex; min-height: 100vh; }
+.lateral { width: 244px; flex-shrink: 0; background: #fff; border-right: 1px solid var(--borda); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
+.lateral .logo { padding: 1.3rem 1.4rem; border-bottom: 1px solid var(--borda); }
+.lateral nav { padding: 1rem .8rem; flex: 1; }
+.lateral nav a { display: flex; align-items: center; gap: .7rem; padding: .65rem .85rem; margin-bottom: .15rem; border-radius: 8px; text-decoration: none; color: var(--cinza); font-weight: 500; font-size: .93rem; }
+.lateral nav a svg { width: 18px; height: 18px; flex-shrink: 0; }
+.lateral nav a:hover { background: var(--fundo-alt); color: var(--texto); }
+.lateral nav a.ativo { background: var(--marca-clara); color: var(--marca-escura); font-weight: 600; }
+.lateral .usuario { padding: 1rem 1.2rem; border-top: 1px solid var(--borda); font-size: .85rem; color: var(--cinza); }
+.lateral .usuario strong { display: block; color: var(--texto); }
+.lateral .usuario button { background: none; border: 0; color: var(--marca-escura); cursor: pointer; padding: 0; font: inherit; font-weight: 600; margin-top: .2rem; }
+
+.painel-main { flex: 1; min-width: 0; padding: 2rem 2.2rem; max-width: 1280px; }
+.painel-topo { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.painel-topo h1 { margin: 0; font-size: 1.7rem; font-weight: 800; }
+.painel-topo p { margin: .1rem 0 0; color: var(--cinza); }
+
+.box { background: #fff; border: 1px solid var(--borda); border-radius: 14px; padding: 1.4rem; margin-bottom: 1.5rem; }
+.box h2 { margin: 0 0 1rem; font-size: 1.05rem; font-weight: 700; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.stat { background: #fff; border: 1px solid var(--borda); border-radius: 14px; padding: 1.2rem 1.3rem; }
+.stat span { display: block; font-size: .82rem; font-weight: 500; color: var(--cinza); }
+.stat strong { display: block; font-size: 1.9rem; font-weight: 800; letter-spacing: -.03em; margin-top: .2rem; }
+.stat:first-child strong { color: var(--marca-escura); }
+
+.duas-colunas { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: start; }
+
+.grafico { display: flex; align-items: flex-end; gap: .7rem; height: 170px; padding-top: 1rem; }
+.grafico .coluna { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; font-size: .8rem; color: var(--cinza); }
+.grafico .barra { width: 100%; max-width: 38px; background: var(--marca); border-radius: 6px 6px 0 0; min-height: 3px; }
+.grafico .coluna b { color: var(--texto); margin-bottom: .2rem; }
+
+/* ---------- Tabelas ---------- */
+table.tabela { width: 100%; border-collapse: collapse; }
+.tabela th, .tabela td { padding: .75rem .8rem; text-align: left; border-bottom: 1px solid var(--borda); vertical-align: middle; font-size: .92rem; }
+.tabela th { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--cinza); background: var(--fundo-alt); }
+.tabela tbody tr:hover { background: #fafbfb; }
+.tabela tbody tr:last-child td { border-bottom: 0; }
+.tabela .acoes { white-space: nowrap; text-align: right; }
+.tabela .acoes form { display: inline; }
+.tabela .vazio { text-align: center; color: var(--cinza); padding: 2rem; }
+.tabela-rolagem { overflow-x: auto; }
+
+.etiqueta { display: inline-block; padding: .15rem .65rem; border-radius: 99px; font-size: .75rem; font-weight: 600; }
+.etiqueta.pendente { background: #fef3c7; color: #92400e; }
+.etiqueta.confirmado { background: #dbeafe; color: #1e40af; }
+.etiqueta.concluido, .etiqueta.ativo { background: #d6f3e5; color: #0b5f3a; }
+.etiqueta.cancelado { background: #fee2e2; color: #991b1b; }
+.etiqueta.inativo { background: #e8ecee; color: #4b5760; }
+
+/* ---------- Formulários ---------- */
+form.formulario { max-width: 640px; }
+.formulario .botoes { display: flex; gap: .7rem; margin-top: 1.4rem; }
+.busca { display: flex; gap: .5rem; max-width: 420px; margin-bottom: 1rem; }
+
+/* ---------- Agenda ---------- */
+.agenda-nav { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.agenda-nav form { display: flex; gap: .4rem; }
+.agenda-nav input[type=date] { width: auto; padding: .4rem .6rem; }
+.agenda-data { font-size: 1.1rem; font-weight: 700; text-transform: capitalize; margin: 0 .5rem; }
+
+table.grade-agenda { width: 100%; border-collapse: collapse; table-layout: fixed; min-width: 640px; }
+.grade-agenda th { background: var(--fundo-alt); color: var(--texto); padding: .7rem; font-size: .88rem; font-weight: 700; border: 1px solid var(--borda); }
+.grade-agenda th:first-child, .grade-agenda td.hora { width: 70px; }
+.grade-agenda td { border: 1px solid var(--borda); height: 46px; padding: 0; vertical-align: top; }
+.grade-agenda td.hora { background: var(--fundo-alt); text-align: center; color: var(--cinza); font-size: .8rem; vertical-align: middle; }
+.grade-agenda td.livre a { display: flex; height: 100%; min-height: 44px; align-items: center; justify-content: center; text-decoration: none; color: transparent; font-size: 1.3rem; }
+.grade-agenda td.livre a:hover { background: var(--marca-clara); color: var(--marca-escura); }
+.bloco { display: block; height: 100%; padding: .35rem .6rem; text-decoration: none; font-size: .82rem; border-left: 4px solid; line-height: 1.3; overflow: hidden; border-radius: 4px; }
+.bloco strong { display: block; }
+.bloco.pendente { background: #fef3c7; border-color: #f59e0b; color: #78350f; }
+.bloco.confirmado { background: #dbeafe; border-color: var(--azul); color: #1e3a8a; }
+.bloco.concluido { background: #d6f3e5; border-color: var(--ok); color: #0b4f31; }
+.legenda { display: flex; gap: 1rem; font-size: .8rem; color: var(--cinza); margin-bottom: .8rem; flex-wrap: wrap; }
+.legenda i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: .3rem; }
+.historico-cliente { color: var(--cinza); font-size: .9rem; }
+
+@media (max-width: 900px) {
+    .duas-colunas { grid-template-columns: 1fr; }
+    .painel-corpo { flex-direction: column; }
+    .lateral { width: 100%; height: auto; position: static; border-right: 0; border-bottom: 1px solid var(--borda); }
+    .lateral nav { display: flex; flex-wrap: wrap; gap: .3rem; padding: .6rem; }
+    .lateral nav a { margin: 0; }
+    .lateral .usuario { display: flex; justify-content: space-between; align-items: center; }
+    .painel-main { padding: 1.2rem; }
+}
+@media (max-width: 520px) { .duas { grid-template-columns: 1fr; } }
