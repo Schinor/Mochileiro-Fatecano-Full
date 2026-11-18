@@ -1,0 +1,23 @@
+sequenceDiagram
+    autonumber
+    participant N as Navegador
+    participant L as Laravel
+    participant B as MariaDB
+
+    N->>L: GET /login
+    L-->>N: formulário com _token (CSRF) + cookie de sessão
+    N->>L: POST /login (email, password, _token)
+    L->>B: busca o usuário pelo e-mail (tabela users)
+    B-->>L: registro com o hash da senha
+    alt credenciais corretas
+        L->>B: grava a sessão autenticada (tabela sessions)
+        L-->>N: 302 para /inicio + novo cookie de sessão
+        N->>L: GET /inicio (cookie de sessão)
+        L->>B: middleware auth lê a sessão e carrega o usuário
+        L-->>N: 200 com a página do usuário
+    else credenciais incorretas
+        L-->>N: 302 de volta para /login com a mensagem de erro
+    end
+    N->>L: POST /logout (_token)
+    L->>B: invalida a sessão
+    L-->>N: 302 para /

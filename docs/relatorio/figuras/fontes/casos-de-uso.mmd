@@ -1,0 +1,38 @@
+flowchart LR
+    V["Visitante"]
+    E["Estudante<br/>(usuário autenticado)"]
+
+    subgraph S["Guia do Mochileiro Fatecano"]
+        direction TB
+        UC1(["Ver a página de apresentação"])
+        UC2(["Cadastrar-se"])
+        UC3(["Entrar (login)"])
+        UC4(["Ver termos e aulas de hoje"])
+        UC5(["Adicionar turma"])
+        UC6(["Remover turma"])
+        UC7(["Consultar matérias de um termo"])
+        UC8(["Listar todas as matérias"])
+        UC9(["Cadastrar matéria"])
+        UC10(["Editar matéria"])
+        UC11(["Remover matéria"])
+        UC12(["Ver notificações"])
+        UC13(["Marcar notificação como lida"])
+        UC14(["Excluir notificação"])
+        UC15(["Sair (logout)"])
+    end
+
+    V --- UC1
+    V --- UC2
+    V --- UC3
+    E --- UC4
+    E --- UC5
+    E --- UC6
+    E --- UC7
+    E --- UC8
+    E --- UC9
+    E --- UC10
+    E --- UC11
+    E --- UC12
+    E --- UC13
+    E --- UC14
+    E --- UC15

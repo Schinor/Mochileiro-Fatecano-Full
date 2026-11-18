@@ -1,0 +1,45 @@
+erDiagram
+    users ||--o{ termos : "possui"
+    users ||--o{ materias : "possui"
+    users ||--o{ notificacoes : "recebe"
+    termos ||--o{ materias : "agrupa"
+
+    users {
+        bigint id PK "unsigned, auto_increment"
+        varchar(255) name
+        varchar(255) email UK
+        timestamp email_verified_at "NULL"
+        varchar(255) password
+        varchar(100) remember_token "NULL"
+        timestamp created_at "NULL"
+        timestamp updated_at "NULL"
+    }
+    termos {
+        bigint id PK "unsigned, auto_increment"
+        bigint user_id FK "ON DELETE CASCADE"
+        varchar(255) nome
+        varchar(7) cor "default #E2F4C5"
+        timestamp created_at "NULL"
+        timestamp updated_at "NULL"
+    }
+    materias {
+        bigint id PK "unsigned, auto_increment"
+        bigint user_id FK "ON DELETE CASCADE"
+        bigint termo_id FK "ON DELETE CASCADE"
+        varchar(255) nome
+        varchar(255) professor "NULL"
+        tinyint dia_semana "unsigned, NULL"
+        varchar(5) horario_inicio "NULL"
+        varchar(5) horario_fim "NULL"
+        varchar(50) sala "NULL"
+        timestamp created_at "NULL"
+        timestamp updated_at "NULL"
+    }
+    notificacoes {
+        bigint id PK "unsigned, auto_increment"
+        bigint user_id FK "ON DELETE CASCADE"
+        varchar(255) texto
+        tinyint(1) lida "default 0"
+        timestamp created_at "NULL"
+        timestamp updated_at "NULL"
+    }

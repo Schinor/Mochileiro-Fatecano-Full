@@ -1,0 +1,76 @@
+# Referências em formato Hayagriva (Typst). Estilo ABNT aplicado no relatorio.typ.
+# Só aparecem no PDF as entradas citadas no texto (@chave).
+# Ao preencher: atualizar a data de acesso (url.date) dos sites para o dia em que foram consultados.
+
+fielding2000:
+  type: thesis
+  title: Architectural styles and the design of network-based software architectures
+  author: Fielding, Roy Thomas
+  date: 2000
+  organization: University of California, Irvine
+
+sommerville2018:
+  type: book
+  title: Engenharia de software
+  author: Sommerville, Ian
+  edition: 10
+  date: 2018
+  publisher: Pearson
+  location: São Paulo
+
+pressman2021:
+  type: book
+  title: "Engenharia de software: uma abordagem profissional"
+  author: ["Pressman, Roger S.", "Maxim, Bruce R."]
+  edition: 9
+  date: 2021
+  publisher: AMGH
+  location: Porto Alegre
+
+laravel-docs:
+  type: web
+  title: Laravel documentation
+  author: Laravel
+  url:
+    value: https://laravel.com/docs
+    date: 2026-11-16
+
+php-manual:
+  type: web
+  title: Manual do PHP
+  author: The PHP Group
+  url:
+    value: https://www.php.net/manual/pt_BR/
+    date: 2026-11-16
+
+angular-docs:
+  type: web
+  title: Angular documentation
+  author: Google
+  url:
+    value: https://angular.dev
+    date: 2026-11-15
+
+mysql-docs:
+  type: web
+  title: MySQL documentation
+  author: Oracle Corporation
+  url:
+    value: https://dev.mysql.com/doc/
+    date: 2026-11-15
+
+sqlite-docs:
+  type: web
+  title: SQLite documentation
+  author: SQLite
+  url:
+    value: https://www.sqlite.org/docs.html
+    date: 2026-11-16
+
+mariadb-docs:
+  type: web
+  title: MariaDB documentation
+  author: MariaDB Foundation
+  url:
+    value: https://mariadb.com/kb/en/documentation/
+    date: 2026-11-18

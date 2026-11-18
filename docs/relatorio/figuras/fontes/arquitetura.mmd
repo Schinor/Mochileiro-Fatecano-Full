@@ -1,0 +1,20 @@
+flowchart LR
+    N["Navegador<br/>HTML + CSS"]
+
+    subgraph L["Aplicação Laravel (php artisan serve, porta 8001)"]
+        direction LR
+        R["Rotas<br/>routes/web.php"]
+        M["Middleware<br/>web · auth · guest · throttle"]
+        C["Controllers<br/>Auth · Termo · Materia · Notificacao"]
+        MD["Models Eloquent<br/>User · Termo · Materia · Notificacao"]
+        VW["Views Blade<br/>resources/views"]
+        R --> M --> C
+        C --> MD
+        C --> VW
+    end
+
+    DB[("MariaDB 10.5<br/>banco mochileiro")]
+
+    N -- "requisição HTTP<br/>(formulário + cookie de sessão)" --> R
+    MD <-- "SQL via PDO<br/>(conexão mariadb)" --> DB
+    VW -- "página HTML ou<br/>redirecionamento" --> N
